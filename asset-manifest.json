@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/faculty-scraper/static/css/main.ab7136cd.chunk.css",
-    "main.js": "/faculty-scraper/static/js/main.4fb5d878.chunk.js",
-    "main.js.map": "/faculty-scraper/static/js/main.4fb5d878.chunk.js.map",
-    "runtime-main.js": "/faculty-scraper/static/js/runtime-main.56453ed2.js",
-    "runtime-main.js.map": "/faculty-scraper/static/js/runtime-main.56453ed2.js.map",
-    "static/js/2.8132cff6.chunk.js": "/faculty-scraper/static/js/2.8132cff6.chunk.js",
-    "static/js/2.8132cff6.chunk.js.map": "/faculty-scraper/static/js/2.8132cff6.chunk.js.map",
-    "static/js/3.0c176774.chunk.js": "/faculty-scraper/static/js/3.0c176774.chunk.js",
-    "static/js/3.0c176774.chunk.js.map": "/faculty-scraper/static/js/3.0c176774.chunk.js.map",
+    "main.css": "/faculty-scraper/static/css/main.6ec653eb.chunk.css",
+    "main.js": "/faculty-scraper/static/js/main.c39cfde9.chunk.js",
+    "main.js.map": "/faculty-scraper/static/js/main.c39cfde9.chunk.js.map",
+    "runtime-main.js": "/faculty-scraper/static/js/runtime-main.6f172d5d.js",
+    "runtime-main.js.map": "/faculty-scraper/static/js/runtime-main.6f172d5d.js.map",
+    "static/js/2.8f41ad29.chunk.js": "/faculty-scraper/static/js/2.8f41ad29.chunk.js",
+    "static/js/2.8f41ad29.chunk.js.map": "/faculty-scraper/static/js/2.8f41ad29.chunk.js.map",
+    "static/js/3.2e45e69a.chunk.js": "/faculty-scraper/static/js/3.2e45e69a.chunk.js",
+    "static/js/3.2e45e69a.chunk.js.map": "/faculty-scraper/static/js/3.2e45e69a.chunk.js.map",
     "index.html": "/faculty-scraper/index.html",
-    "static/css/main.ab7136cd.chunk.css.map": "/faculty-scraper/static/css/main.ab7136cd.chunk.css.map",
-    "static/js/2.8132cff6.chunk.js.LICENSE.txt": "/faculty-scraper/static/js/2.8132cff6.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/faculty-scraper/static/media/logo.6ce24c58.svg"
+    "static/css/main.6ec653eb.chunk.css.map": "/faculty-scraper/static/css/main.6ec653eb.chunk.css.map",
+    "static/js/2.8f41ad29.chunk.js.LICENSE.txt": "/faculty-scraper/static/js/2.8f41ad29.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.56453ed2.js",
-    "static/js/2.8132cff6.chunk.js",
-    "static/css/main.ab7136cd.chunk.css",
-    "static/js/main.4fb5d878.chunk.js"
+    "static/js/runtime-main.6f172d5d.js",
+    "static/js/2.8f41ad29.chunk.js",
+    "static/css/main.6ec653eb.chunk.css",
+    "static/js/main.c39cfde9.chunk.js"
   ]
 }
