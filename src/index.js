@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import FacultySearchBox from './faculty_scraper.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FacultySearchBox />
   </React.StrictMode>,
   document.getElementById('root')
 );
