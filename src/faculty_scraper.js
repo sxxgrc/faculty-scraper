@@ -59,8 +59,7 @@ class FacultySearchBox extends React.Component {
             body: JSON.stringify({ url: this.state.url })
         };
 
-        // fetch('https://facultyscraper-heroku.herokuapp.com/', requestOptions)
-        fetch('http://127.0.0.1:5000/', requestOptions)
+        fetch('https://facultyscraper-heroku.herokuapp.com/', requestOptions)
             .then(response => {
                 if (response.ok)
                     return response.json();
