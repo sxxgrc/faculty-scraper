@@ -13,10 +13,17 @@ class FacultySearchBox extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.sendRequest = this.sendRequest.bind(this);
     }
 
     handleChange(event) {
         this.setState({ url: event.target.value });
+        var urlString = String(event.target.value).replace(/\/$/, "")
+        if (this.validateUrl(urlString)) {
+            document.getElementById("input").setCustomValidity("Invalid URL: Make sure you are providing a valid university URL (starts with http(s):// and ends with .edu).");
+            return;
+        }
+        document.getElementById("input").setCustomValidity("");
     }
 
     handleSubmit(event) {
@@ -26,19 +33,67 @@ class FacultySearchBox extends React.Component {
         if (this.state.loading)
             return;
 
+        // Want to accept only URls that end in .edu ignoring trailing /s.
+        var urlString = String(this.state.url).replace(/\/$/, "")
+        if (this.validateUrl(urlString)) {
+            console.log("Invalid URL.");
+            return;
+        }
         this.setState({loading: true});
 
+        // Send the request and start polling.
+        this.sendRequest()
+    }
+
+    validateUrl(urlString) {
+        return !urlString.endsWith('.edu') || !/^[a-zA-Z:\/\.]+$/.test(urlString) ||
+            (!urlString.startsWith('http://') && !urlString.startsWith('https://'));
+    }
+
+    sendRequest() {
         // Send request to flask with the URL.
-        
+        const requestOptions = {
+            method: 'POST',
+            mode: "cors",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url: this.state.url })
+        };
+
+        // fetch('https://facultyscraper-heroku.herokuapp.com/', requestOptions)
+        fetch('http://127.0.0.1:5000/', requestOptions)
+            .then(response => {
+                if (response.ok)
+                    return response.json();
+                else
+                    throw new Error("Bad response!");
+            })
+            .then(data => {
+                if (data["result"]) {
+                    this.setState({ loading: false, url: "" });
+
+                    // Don't go to results page if nothing to display.
+                    if (data["urls"].length == 0) {
+                        document.getElementById("input").setCustomValidity("Failed to get results! Check URL and make sure it is correct. Maybe try with/without the www.");
+                    }
+
+                    this.props.history.push({ pathname: "/results", data: data["urls"] });
+                } else {
+                    setTimeout(this.sendRequest, 10000);
+                }
+            })
+            .catch((_error) => {
+                this.setState({ loading: false });
+                document.getElementById("input").setCustomValidity("Invalid URL! Try another variation of this URL and make sure it is accessible!");
+            });
     }
 
     render() {
         return [
-            <h1 class="title">Faculty Scraper</h1>,
-            <form onSubmit={this.handleSubmit} class="wrap">
-                <label class="scrape">
-                    <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="Input a university URL (e.g. illinois.edu)" class="scrapeBar" />
-                    <button type="submit" class="scrapeButton">
+            <h1 className="title">Faculty Scraper</h1>,
+            <form onSubmit={this.handleSubmit} className="wrap">
+                <label className="scrape">
+                    <input autoFocus type="text" id="input" value={this.state.url} onChange={this.handleChange} placeholder="Input a university URL (e.g. https://illinois.edu)" className="scrapeBar" />
+                    <button type="submit" className="scrapeButton">
                         {
                             this.state.loading ? <Puff /> : <FaSearch />
                         }

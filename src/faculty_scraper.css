@@ -25,7 +25,7 @@ body {
     border: 3px solid #9c95a0;
     border-right: none;
     padding: 5px;
-    height: 50px;
+    height: 50.2px;
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #757575;
@@ -38,6 +38,11 @@ body {
 
 .scrapeBar:hover {
     color: #020202;
+}
+
+.scrapeBar:invalid {
+    color: #f84d4d;
+    box-shadow: none;
 }
 
 .scrapeButton {
