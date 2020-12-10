@@ -5,6 +5,10 @@ class Results extends React.Component {
     render() {
         const { data } = this.props.location;
 
+        if (document.title != "Results") {
+            document.title = "Results";
+        }
+
         if (data == null) {
             return (
                 <h1 className="error">Error, no results present!</h1>

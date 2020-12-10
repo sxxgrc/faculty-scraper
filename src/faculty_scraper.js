@@ -47,7 +47,7 @@ class FacultySearchBox extends React.Component {
 
     validateUrl(urlString) {
         return !urlString.endsWith('.edu') || !/^[a-zA-Z:\/\.]+$/.test(urlString) ||
-            (!urlString.startsWith('http://') && !urlString.startsWith('https://'));
+            (!urlString.startsWith('http://www.') && !urlString.startsWith('https://www.'));
     }
 
     sendRequest() {
@@ -88,11 +88,15 @@ class FacultySearchBox extends React.Component {
     }
 
     render() {
+        if (document.title != "Faculty Scraper") {
+            document.title = "Faculty Scraper";
+        }
+
         return [
             <h1 className="title">Faculty Scraper</h1>,
             <form onSubmit={this.handleSubmit} className="wrap">
                 <label className="scrape">
-                    <input autoFocus type="text" id="input" value={this.state.url} onChange={this.handleChange} placeholder="Input a university URL (e.g. https://illinois.edu)" className="scrapeBar" />
+                    <input autoFocus type="text" id="input" value={this.state.url} onChange={this.handleChange} placeholder="Input a university URL (e.g. https://www.illinois.edu)" className="scrapeBar" />
                     <button type="submit" className="scrapeButton">
                         {
                             this.state.loading ? <Puff /> : <FaSearch />
